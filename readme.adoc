@@ -14,6 +14,7 @@ http://bits.netbeans.org/download/trunk/nightly/latest/
 == Pull Image
 
 . Right-click on machine name, click on `Pull...`, search for `arungupta/couchbase` image
+.. Show how images on Doker Hub can be seen here
 . Show output in `Output` window
 
 == Run Container
@@ -28,8 +29,12 @@ http://bits.netbeans.org/download/trunk/nightly/latest/
 
 . Right-click on machine name and cick on `Build...`
 . Provide a directory where Dockerfile already exists and build the image
-.. No way to provide an image name
-.. How to show Dockerfile syntax highlighting?
+.. Provide the image name in `Repository`
+.. Open Dockerfile suing `Files` to show syntax highlighting
+
+. Create a new Maven project
+. Add a new Dockerfile
+. Go to `Files` panel, right-click on Dockerfile and show `Build...`
 
 == Misc
 
