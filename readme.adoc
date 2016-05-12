@@ -1,0 +1,164 @@
+
+= Eclipsens
+
+== Download NetBeans nightly
+
+http://bits.netbeans.org/download/trunk/nightly/latest/
+
+== Configure Docker
+
+. In `Services` tab, configure Docker Machine using URL
+. Click on `Test Connection` to verify the connection
+. Show the list of images and containers - running and non-running
+
+== Pull Image
+
+. Right-click on machine name, click on `Pull...`, search for `arungupta/couchbase` image
+. Show output in `Output` window
+
+== Run Container
+
+. Right-click on the downloaded image, select `Run...`, take the defaults
+.. Go to browser and show 192.68.99.100:8091 is not accessible (because ports were not exposed)
+.. Stop and remove the container
+. Run the container again, click on `Next>`, click on `Add Exposed`, click on `Finish`
+. Show `192.168.99.100:8091`
+
+== Build Image
+
+. Right-click on machine name and cick on `Build...`
+. Provide a directory where Dockerfile already exists and build the image
+.. No way to provide an image name
+.. How to show Dockerfile syntax highlighting?
+
+== Misc
+
+. Shutdown the machine and show the offline status in NetBeans
+
+
+== Download
+
+. Download Eclipse IDE for Java Developers from http://www.eclipse.org/downloads/
+. Mars R2
+
+== Configure Docker
+
+. `Help`, `Install New Software`, `Mars` update site, search for `Docker Tooling`, finish the install
+.. Restart Eclipse
+. `Docker Tooling` perspective
+. Explain connection dialog
+.. Docker Machine
+.. Docker for Mac
+. Three views
+.. `Docker Explorer` - view for creating/managing connections to Docker daemons
+.. `Docker Images`- view for managing Docker Images
+.. `Docker Containers` - view for managing Docker Containers
+.. `Console` - Display logs of stdout/stderr output from Containers and in some instances, allow input to stdin
+.. `Properties` - Detailed information about connections, images and containers
+. `Customize View`
+
+== Pull image
+
+. Right-click on node, search for `arungupta/couchbase` image
+. Show output in `Progress` window
+. Properties of the image in `Properties` window
+
+== Run Container
+
+. Right-click on the downloaded image, click on `Run`
+. Unselect `Unpublish all exposed ports ...` to map the ports to the exact same number
+. Show `127.0.0.1:8091`
+. `Docker Containers` pane, show context-sensitive menu on top right. It changes if the container is stopped or running.
+. `Show All containers`
+. Run configurations
+.. Click on `Run`, `Run Configurations`, walk through the configuration of containers
+. Select a container in `Docker Containers`, in `Properties`, show `Info` and `Inspect`
+
+== Build Image
+
+. In `Docker Images` view, click on hammer, provide an image name and directory name (will be created)
+. Use `Dockerfile`:
++
+```
+FROM alpine:3.2
+RUN apk --update add openjdk7-jre
+CMD ["/usr/bin/java", "-version"]
+```
++
+Dockerfile editor is a basic text editor with support for copy/paste but no syntax highlighting
++
+. Right-click on the container and click on `Run` to run the image and see the output:
++
+```
+2016-05-11T23:18:22.884611633Z java version "1.7.0_79"
+2016-05-11T23:18:22.884683967Z OpenJDK Runtime Environment (IcedTea 2.5.6) (Alpine 7.79.2.5.6-r0)
+2016-05-11T23:18:22.884708820Z OpenJDK 64-Bit Server VM (build 24.79-b02, mixed mode)
+```
++
+. Click on `Run Configurations`, walk through the configuration in `Build Docker Image`
+
+== Misc
+
+. Show `Preferences`, `Docker`, `Logging`
+
+= IntelliJ IDEA
+
+== Download
+
+. Download Community or Ultimate: https://www.jetbrains.com/idea/download/
+
+== Configure Docker
+
+. Preferences, search for `"plugin"`, go to `Plugins`
+. Click on `Install JetBrains plugin...`, search on `Docker`, click on `Install`
+. `View`, `Tool Windows`, `Docker Tooling Window`
+. Click on `Connect` to connect with Docker Machine
+
+== Pull image
+
+. Select top-level node
+. Click on `Pull image`
+.. Show how multiple registries can be configured
+. Type `arungupta/couchbase` and pull
+
+== Run Container
+
+. Select an image, click on `Create container`
+. Highlight `Open browser`
+. Go to `Container` tab, configure `Port bindings`
+. Right-click on the running container and explain the menu items. Show `Inspect`
+. Show how to Stop and Delete container from the left menu
+
+== Build Image
+
+. Refer to the instructions https://www.jetbrains.com/help/idea/2016.1/docker.html
+
+. Create a new project, Java, Web Application
+. Artifact
+.. Click on top-right for `Project Structure`
+.. select `Artifacts`
+.. change to `Web Application: Archive`
+.. change the name to `helloweb`
+.. change `Output directory` click on `OK`
+. `Preferences`, `Clouds`, add new Docker, show successful connection
+. Right-click on the project, create a new directory `docker-dir`
+. Create `Dockerfile` in this directory. Use the contents
++
+```
+FROM jboss/wildfly
+
+ADD helloweb.war /opt/jboss/wildfly/standalone/deployments/
+```
++
+. `Run`, `Edit Configurations`, add new `Docker Deployment`
+.. Change the name to `helloweb`
+.. Go to `Container` tab
+.. Select `docker-dir` and `container_settings.json` will be created
+.. Back in `Deployment`, select `After launch`, change the URL to `http://192.168.99.100:18080/helloweb/index.jsp`
+.. In `Before launch`, add `Build Artifacts` and select the artifact
+. Run the project
+. View, Tool Windows, Docker, connect to it
+
+== Misc
+
+
