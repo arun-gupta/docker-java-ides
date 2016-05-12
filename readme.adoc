@@ -1,5 +1,4 @@
-
-= Eclipsens
+= NetBeans
 
 == Download NetBeans nightly
 
@@ -40,6 +39,7 @@ http://bits.netbeans.org/download/trunk/nightly/latest/
 
 . Shutdown the machine and show the offline status in NetBeans
 
+= Eclipse
 
 == Download
 
