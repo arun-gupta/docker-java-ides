@@ -114,6 +114,7 @@ Dockerfile editor is a basic text editor with support for copy/paste but no synt
 
 == Configure Docker
 
+. Create a new project, Java, Web Application (can only be configured once into a project)
 . Preferences, search for `"plugin"`, go to `Plugins`
 . Click on `Install JetBrains plugin...`, search on `Docker`, click on `Install`
 . `View`, `Tool Windows`, `Docker Tooling Window`
@@ -129,8 +130,8 @@ Dockerfile editor is a basic text editor with support for copy/paste but no synt
 == Run Container
 
 . Select an image, click on `Create container`
-. Highlight `Open browser`
-. Go to `Container` tab, configure `Port bindings`
+. Select `After launch` and enter the URL as `http://192.168.99.100:8091`
+. Go to `Container` tab, add `Port bindings` for `8091:8091`
 . Right-click on the running container and explain the menu items. Show `Inspect`
 . Show how to Stop and Delete container from the left menu
 
@@ -138,15 +139,14 @@ Dockerfile editor is a basic text editor with support for copy/paste but no synt
 
 . Refer to the instructions https://www.jetbrains.com/help/idea/2016.1/docker.html
 
-. Create a new project, Java, Web Application
+. `Preferences`, `Clouds`, `Import credentials from Docker Machine`, `Detect`, show successful connection
+. Right-click on the project, create a new directory `docker-dir`
 . Artifact
 .. Click on top-right for `Project Structure`
 .. select `Artifacts`
-.. change to `Web Application: Archive`
+.. change `Type:` to `Web Application: Archive`
 .. change the name to `helloweb`
-.. change `Output directory` click on `OK`
-. `Preferences`, `Clouds`, add new Docker, show successful connection
-. Right-click on the project, create a new directory `docker-dir`
+.. change `Output directory` to `docker-dir`
 . Create `Dockerfile` in this directory. Use the contents
 +
 ```
@@ -156,13 +156,14 @@ ADD helloweb.war /opt/jboss/wildfly/standalone/deployments/
 ```
 +
 . `Run`, `Edit Configurations`, add new `Docker Deployment`
-.. Change the name to `helloweb`
-.. Go to `Container` tab
-.. Select `docker-dir` and `container_settings.json` will be created
-.. Back in `Deployment`, select `After launch`, change the URL to `http://192.168.99.100:18080/helloweb/index.jsp`
-.. In `Before launch`, add `Build Artifacts` and select the artifact
-. Run the project
+.. `Deployment` tab
+... Change the name to `helloweb`
+... Select `After launch`, change the URL to `http://192.168.99.100:18080/helloweb/index.jsp`
+... In `Before launch`, add `Build Artifacts` and select the artifact
+.. `Container` tab
+... Add `Port bindings` for `8080:18080`
 . View, Tool Windows, Docker, connect to it
+. Run the project
 
 == Misc
 
