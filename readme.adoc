@@ -167,4 +167,12 @@ ADD helloweb.war /opt/jboss/wildfly/standalone/deployments/
 
 == Misc
 
+=== Docker Compose
+
+. `Preferences`, `Build, Execution, Deployment`, `Clouds`, set the path of `docker-compose` to `/usr/local/bin/docker-compose`.
+. Create a `docker-compose.yml` in `docker-dir`
+. Copy Compose file from https://github.com/arun-gupta/oreilly-docker-book/blob/master/hello-javaee/docker-compose.yml
+. Create new deployment, select `docker-dir/docker-compose.yml` in `Deployment:`
+. Run the project and show the running containers under `Compose`
+
 
