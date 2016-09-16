@@ -48,13 +48,13 @@ http://bits.netbeans.org/download/trunk/nightly/latest/
 
 . Download Eclipse IDE for Java EE Developers from http://www.eclipse.org/downloads/
 .. Tested with Neon.1 RC3 (at the time of this writing): https://eclipse.org/downloads/index-developer.php
-. Make sure to download the complete bundle instead of just the installer
+.. Make sure to download the complete bundle instead of just the installer
 
 == Configure Docker
 
 . `Help`, `Install New Software`, `Neon` update site, search for `Docker Tooling`, finish the install
-.. Restart Eclipse
-. `Docker Tooling` perspective
+.. Use http://download.eclipse.org/linuxtools/update-neon-1-docker-rc4/ for Neon.1 RC3
+. Switch to `Docker Tooling` perspective
 . Explain connection dialog (show how defaults are populated)
 .. Docker Machine
 ... Use `docker-machine env` to print the environment
