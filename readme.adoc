@@ -47,7 +47,7 @@ http://bits.netbeans.org/download/trunk/nightly/latest/
 == Download
 
 . Download Eclipse IDE for Java EE Developers from http://www.eclipse.org/downloads/
-. Tested with Neon.1 RC3 (at the time of this writing): https://eclipse.org/downloads/index-developer.php
+.. Tested with Neon.1 RC3 (at the time of this writing): https://eclipse.org/downloads/index-developer.php
 . Make sure to download the complete bundle instead of just the installer
 
 == Configure Docker
