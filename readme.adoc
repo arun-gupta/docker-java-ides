@@ -1,8 +1,8 @@
 = NetBeans
 
-== Download NetBeans nightly
+== Environment
 
-http://bits.netbeans.org/download/trunk/nightly/latest/
+. http://bits.netbeans.org/download/trunk/nightly/latest/[NetBeans Nightly] on Sep 15, 2016
 
 == Configure Docker
 
@@ -44,10 +44,9 @@ http://bits.netbeans.org/download/trunk/nightly/latest/
 
 = Eclipse
 
-== Download
+== Environment
 
-. Download Eclipse IDE for Java EE Developers from http://www.eclipse.org/downloads/
-.. Tested with Neon.1 RC3 (at the time of this writing): https://eclipse.org/downloads/index-developer.php
+. Tested with https://eclipse.org/downloads/index-developer.php[Neon.1 RC3] (at the time of this writing)
 .. Make sure to download the complete bundle instead of just the installer
 
 == Configure Docker
@@ -130,13 +129,14 @@ Dockerfile editor is a basic text editor with support for copy/paste but no synt
 
 == Download
 
-. Download Community or Ultimate: https://www.jetbrains.com/idea/download/
+. Download https://www.jetbrains.com/idea/download/[IntelliJ IDEA Community or Ultimate]
+.. Tested with 2016.2
 
 == Configure Docker
 
-. Create a new project, Java, Web Application (can only be configured once into a project)
-. Preferences, search for `"plugin"`, go to `Plugins`
+. `Preferences`, search for `"plugin"`, go to `Plugins`
 . Click on `Install JetBrains plugin...`, search on `Docker`, click on `Install`
+. Restart IntelliJ
 . `View`, `Tool Windows`, `Docker Tooling Window`
 . Click on `Connect` to connect with Docker Machine
 
