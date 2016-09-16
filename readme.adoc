@@ -46,7 +46,8 @@ http://bits.netbeans.org/download/trunk/nightly/latest/
 
 == Download
 
-. Download Eclipse IDE for Java Developers from http://www.eclipse.org/downloads/
+. Download Eclipse IDE for Java EE Developers from http://www.eclipse.org/downloads/
+. Tested with Neon.1 RC3 (at the time of this writing): https://eclipse.org/downloads/index-developer.php
 . Make sure to download the complete bundle instead of just the installer
 
 == Configure Docker
@@ -54,7 +55,7 @@ http://bits.netbeans.org/download/trunk/nightly/latest/
 . `Help`, `Install New Software`, `Neon` update site, search for `Docker Tooling`, finish the install
 .. Restart Eclipse
 . `Docker Tooling` perspective
-. Explain connection dialog
+. Explain connection dialog (show how defaults are populated)
 .. Docker Machine
 ... Use `docker-machine env` to print the environment
 ... Use `DOCKER_HOST` and `DOCKER_CERT_PATH` for TCP Connection
@@ -70,6 +71,8 @@ http://bits.netbeans.org/download/trunk/nightly/latest/
 .. `Console` - Display logs of stdout/stderr output from Containers and in some instances, allow input to stdin
 .. `Properties` - Detailed information about connections, images and containers
 . `Customize View` - show/hide stopped containers
+. Preferences, Docker, Registry Accounts
+.. Multiple accounts can be setup and used for pushing images to registry with authentication
 
 == Pull image
 
@@ -80,6 +83,7 @@ http://bits.netbeans.org/download/trunk/nightly/latest/
 == Run Container
 
 . Right-click on the downloaded image, click on `Run`
+.. Explain port publishing, container linking (legacy), `-it`, `--rm`, data volumes, environment variables, labels, CPU & memory limits
 . Unselect `Publish all exposed ports ...` to map the ports to the same number on the host
 . Show log in Console
 . Show `127.0.0.1:8091`
@@ -88,6 +92,9 @@ http://bits.netbeans.org/download/trunk/nightly/latest/
 . Run configurations
 .. Click on `Run`, `Run Configurations`, walk through the configuration of containers
 . Select a container in `Docker Containers`, in `Properties`, show `Info` and `Inspect`
+. Docker Compose
+.. Check out a project TODO
+.. Select `docker-compose.yml`, right-click `Run As` -> `Docker Compose`
 
 == Build Image
 
@@ -103,6 +110,7 @@ CMD ["/usr/bin/java", "-version"]
 +
 Dockerfile editor is a basic text editor with support for copy/paste but no syntax highlighting
 +
+. Right-click on the image and select `Open Image Hierarchy` to show the hierarchy of images
 . Right-click on the container and click on `Run` to run the image and see the output:
 +
 ```
