@@ -6,6 +6,7 @@ http://bits.netbeans.org/download/trunk/nightly/latest/
 
 == Configure Docker
 
+. No support for Docker for Mac, only Docker Machine supported
 . In `Services` tab, configure Docker Machine using URL
 . Click on `Test Connection` to verify the connection
 . Show the list of images and containers - running and non-running
@@ -29,7 +30,9 @@ http://bits.netbeans.org/download/trunk/nightly/latest/
 . Right-click on machine name and cick on `Build...`
 . Provide a directory where Dockerfile already exists and build the image
 .. Provide the image name in `Repository`
-.. Open Dockerfile suing `Files` to show syntax highlighting
+.. Open Dockerfile using `Files` to show syntax highlighting
+
+== Maven + Dockerfile
 
 . Create a new Maven project
 . Add a new Dockerfile
