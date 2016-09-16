@@ -64,14 +64,15 @@ http://bits.netbeans.org/download/trunk/nightly/latest/
 ... Start Docker for Mac
 ... Configure using `Unix socket`. Connection name of `moby` and socket of `unix:///var/run/docker.sock` are automatically picked.
 ... Click on `Test Connection`
-. Three views
+. Multiple views
 .. `Docker Explorer` - view for creating/managing connections to Docker daemons
-.. `Docker Images`- view for managing Docker Images
-.. `Docker Containers` - view for managing Docker Containers
+.. `Docker Images`- view for managing Docker images
+.. `Docker Containers` - view for managing Docker containers
+.. `Docker Image Hierarchy` - image hierarchy for Docker images
 .. `Console` - Display logs of stdout/stderr output from Containers and in some instances, allow input to stdin
 .. `Properties` - Detailed information about connections, images and containers
 . `Customize View` - show/hide stopped containers
-. Preferences, Docker, Registry Accounts
+. `Preferences`, `Docker`, `Registry Accounts`
 .. Multiple accounts can be setup and used for pushing images to registry with authentication
 
 == Pull image
