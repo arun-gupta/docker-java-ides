@@ -47,23 +47,29 @@ http://bits.netbeans.org/download/trunk/nightly/latest/
 == Download
 
 . Download Eclipse IDE for Java Developers from http://www.eclipse.org/downloads/
-. Mars R2
+. Make sure to download the complete bundle instead of just the installer
 
 == Configure Docker
 
-. `Help`, `Install New Software`, `Mars` update site, search for `Docker Tooling`, finish the install
+. `Help`, `Install New Software`, `Neon` update site, search for `Docker Tooling`, finish the install
 .. Restart Eclipse
 . `Docker Tooling` perspective
 . Explain connection dialog
 .. Docker Machine
+... Use `docker-machine env` to print the environment
+... Use `DOCKER_HOST` and `DOCKER_CERT_PATH` for TCP Connection
+... Click on Test Connection
 .. Docker for Mac
+... Start Docker for Mac
+... Configure using `Unix socket`. Connection name of `moby` and socket of `unix:///var/run/docker.sock` are automatically picked.
+... Click on `Test Connection`
 . Three views
 .. `Docker Explorer` - view for creating/managing connections to Docker daemons
 .. `Docker Images`- view for managing Docker Images
 .. `Docker Containers` - view for managing Docker Containers
 .. `Console` - Display logs of stdout/stderr output from Containers and in some instances, allow input to stdin
 .. `Properties` - Detailed information about connections, images and containers
-. `Customize View`
+. `Customize View` - show/hide stopped containers
 
 == Pull image
 
@@ -74,7 +80,8 @@ http://bits.netbeans.org/download/trunk/nightly/latest/
 == Run Container
 
 . Right-click on the downloaded image, click on `Run`
-. Unselect `Unpublish all exposed ports ...` to map the ports to the exact same number
+. Unselect `Publish all exposed ports ...` to map the ports to the same number on the host
+. Show log in Console
 . Show `127.0.0.1:8091`
 . `Docker Containers` pane, show context-sensitive menu on top right. It changes if the container is stopped or running.
 . `Show All containers`
@@ -84,12 +91,13 @@ http://bits.netbeans.org/download/trunk/nightly/latest/
 
 == Build Image
 
-. In `Docker Images` view, click on hammer, provide an image name and directory name (will be created)
+. In `Docker Images` view, click on hammer
+. Provide an image name and directory name (will be created)
 . Use `Dockerfile`:
 +
 ```
-FROM alpine:3.2
-RUN apk --update add openjdk7-jre
+FROM openjdk:8-alpine
+
 CMD ["/usr/bin/java", "-version"]
 ```
 +
@@ -98,12 +106,12 @@ Dockerfile editor is a basic text editor with support for copy/paste but no synt
 . Right-click on the container and click on `Run` to run the image and see the output:
 +
 ```
-2016-05-11T23:18:22.884611633Z java version "1.7.0_79"
-2016-05-11T23:18:22.884683967Z OpenJDK Runtime Environment (IcedTea 2.5.6) (Alpine 7.79.2.5.6-r0)
-2016-05-11T23:18:22.884708820Z OpenJDK 64-Bit Server VM (build 24.79-b02, mixed mode)
+2016-09-16T05:24:37.948910862Z openjdk version "1.8.0_92-internal"
+2016-09-16T05:24:37.949566555Z OpenJDK Runtime Environment (build 1.8.0_92-internal-alpine-r1-b14)
+2016-09-16T05:24:37.949876330Z OpenJDK 64-Bit Server VM (build 25.92-b14, mixed mode)
 ```
 +
-. Click on `Run Configurations`, walk through the configuration in `Build Docker Image`
+. Click on `Run Configurations`, walk through the configuration in `Build Docker Image` and `Run Docker image`.
 
 == Misc
 
